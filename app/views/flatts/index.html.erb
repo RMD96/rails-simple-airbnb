@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Flatts</h1>
+
+<div id="flatts">
+  <% @flatts.each do |flatt| %>
+    <%= render flatt %>
+    <p>
+      <%= link_to "Show this flatt", flatt %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New flatt", new_flatt_path %>
