@@ -1,14 +1,25 @@
+<!-- app/views/flats/index.html.erb -->
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Flats</h1>
 
-<div id="flats">
-  <% @flats.each do |flat| %>
-    <%= render flat %>
-    <p>
-      <%= link_to "Show this flat", flat %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="https://via.placeholder.com/300x200.png?text=No+Image" class="card-img-top" alt="<%= flat.name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= flat.name %></h5>
+            <p class="card-text"><%= flat.address %></p>
+            <p><strong><%= number_to_currency(flat.price_per_night) %></strong> per night</p>
+            <a href="<%= flat_path(flat) %>" class="btn btn-primary">More Info</a>
+            <a href="<%= edit_flat_path(flat) %>" class="btn btn-secondary">Edit</a>
+            <%= link_to "Remove", flat_path(flat), data: { turbo_method: "delete", turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New flat", new_flat_path %>

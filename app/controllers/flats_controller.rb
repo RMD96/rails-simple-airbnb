@@ -58,13 +58,14 @@ class FlatsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flat
-      @flat = Flat.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def flat_params
-      params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_flat
+    @flat = Flat.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def flat_params
+    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests)
+  end
 end
