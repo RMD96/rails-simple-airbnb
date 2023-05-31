@@ -1,2 +1,0 @@
-class Flatt < ApplicationRecord
-end
